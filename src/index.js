@@ -55,7 +55,7 @@ export function ssmToObj(options, callback) {
 }
 
 export function ssmToEnv(prefix, callback) {
-  ssmToObj({ prefix, target: process.env }, callback);
+  ssmToObj({ prefix, target: process.env, withDecryption: true }, callback);
 }
 
 export function queryParameterNamesWithPrefix(prefix, callback) {
