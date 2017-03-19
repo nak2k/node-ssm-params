@@ -17,7 +17,7 @@ export function ssmToObj(options, callback) {
     };
   }
 
-  const { prefix, target = {} } = options;
+  const { prefix, target = {}, withDecryption } = options;
 
   queryParameterNamesWithPrefix(prefix, (err, Names) => {
     if (err) {
@@ -30,7 +30,7 @@ export function ssmToObj(options, callback) {
 
     const ssm = getSsm();
 
-    ssm.getParameters({ Names }, (err, data) => {
+    ssm.getParameters({ Names, WithDecryption: withDecryption }, (err, data) => {
       if (err) {
         return callback(err);
       }

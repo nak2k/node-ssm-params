@@ -19,6 +19,8 @@ npm i ssm-params aws-sdk -S
 - `options.target`
     - A target object that is set values of obtained parameters.
     - Default: `{}`
+- `options.withDecryption`
+    - If this is true, values of secure strings are decrypted.
 - `callback(err, target)`
     - A callback which is called when obtaining parameters have finished,
       or an error occurs.
