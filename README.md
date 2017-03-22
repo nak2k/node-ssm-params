@@ -24,7 +24,12 @@ npm i ssm-params aws-sdk -S
 - `callback(err, target)`
     - A callback which is called when obtaining parameters have finished,
       or an error occurs.
-    - If an error does not occur, `target` is passed `options.target`.
+    - If no error occurs, `target` is passed `options.target`.
+
+#### Required IAM Permissions
+
+- `ssm:DescribeParameters`
+- `ssm:GetParameters`
 
 ### ssmToEnv(prefix, callback)
 
