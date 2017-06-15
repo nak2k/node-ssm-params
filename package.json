@@ -8,6 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "aws-sdk": "^2.71.0",
     "babel-cli": "^6.24.1",
     "babel-preset-es2017-node7": "^0.5.1",
     "babel-register": "^6.24.1",
