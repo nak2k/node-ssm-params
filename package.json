@@ -1,6 +1,6 @@
 {
   "name": "ssm-params",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Obtain from AWS SSM Parameter Store",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
@@ -8,10 +8,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.23.0",
+    "aws-sdk": "^2.71.0",
+    "babel-cli": "^6.24.1",
     "babel-preset-es2017-node7": "^0.5.1",
-    "babel-register": "^6.24.0",
-    "eslint": "^3.18.0",
+    "babel-register": "^6.24.1",
+    "eslint": "^4.0.0",
     "tape": "^4.6.3"
   },
   "homepage": "https://github.com/nak2k/node-ssm-params",
