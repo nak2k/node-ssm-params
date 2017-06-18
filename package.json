@@ -9,9 +9,6 @@
   "dependencies": {},
   "devDependencies": {
     "aws-sdk": "^2.71.0",
-    "babel-cli": "^6.24.1",
-    "babel-preset-es2017-node7": "^0.5.1",
-    "babel-register": "^6.24.1",
     "eslint": "^4.0.0",
     "tape": "^4.6.3"
   },
@@ -27,15 +24,11 @@
     "url": "git+https://github.com/nak2k/node-ssm-params.git"
   },
   "scripts": {
-    "build": "npm run lint && babel -d lib/ src/",
-    "lint": "eslint src",
-    "test": "tape -r babel-register test/*.js"
+    "lint": "eslint lib",
+    "test": "tape test/*.js"
   },
   "files": [
     "README.md",
     "lib/"
-  ],
-  "babel": {
-    "presets": "es2017-node7"
-  }
+  ]
 }
