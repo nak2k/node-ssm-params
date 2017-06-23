@@ -1,6 +1,6 @@
 {
   "name": "ssm-params",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Obtain from AWS SSM Parameter Store",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
@@ -8,10 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "aws-sdk": "^2.71.0",
-    "babel-cli": "^6.24.1",
-    "babel-preset-es2017-node7": "^0.5.1",
-    "babel-register": "^6.24.1",
+    "aws-sdk": "^2.76.0",
     "eslint": "^4.0.0",
     "tape": "^4.6.3"
   },
@@ -27,15 +24,11 @@
     "url": "git+https://github.com/nak2k/node-ssm-params.git"
   },
   "scripts": {
-    "build": "npm run lint && babel -d lib/ src/",
-    "lint": "eslint src",
-    "test": "tape -r babel-register test/*.js"
+    "lint": "eslint lib",
+    "test": "tape test/*.js"
   },
   "files": [
     "README.md",
     "lib/"
-  ],
-  "babel": {
-    "presets": "es2017-node7"
-  }
+  ]
 }

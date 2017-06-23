@@ -1,9 +1,9 @@
-import test from 'tape';
-import {
+const test = require('tape');
+const {
   ssmToObj,
   ssmToEnv,
-} from '..';
-import AWS from 'aws-sdk';
+} = require('..');
+const AWS = require('aws-sdk');
 
 AWS.config.update({ region: process.env.AWS_REGION });
 
