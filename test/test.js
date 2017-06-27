@@ -1,6 +1,7 @@
 const test = require('tape');
 const {
   ssmToObj,
+  ssmToObjByPath,
   ssmToEnv,
 } = require('..');
 const AWS = require('aws-sdk');
@@ -40,5 +41,54 @@ test('test ssmToEnv', t => {
   ssmToEnv('test-ssm-params.env.', err => {
     t.error(err);
     t.equal(process.env.TEST, 'test');
+  });
+});
+
+test('test ssmToObjByPath', t => {
+  t.plan(3);
+
+  ssmToObjByPath('/test-ssm-params/nestObject/foo', (err, obj) => {
+    t.error(err);
+
+    t.equal(typeof(obj), 'object');
+    t.equal(obj['/value'], 'test');
+  });
+});
+
+test('test ssmToObjByPath with nestObject', t => {
+  t.plan(4);
+
+  const options = {
+    Path: '/test-ssm-params/nestObject',
+    Recursive: true,
+    nestObject: true,
+  };
+
+  ssmToObjByPath(options, (err, obj) => {
+    t.error(err);
+
+    t.equal(typeof(obj), 'object');
+    t.equal(typeof(obj.foo), 'object');
+    t.equal(obj.foo.value, 'test');
+  });
+});
+
+test('test ssmToObjByPath with nestObject and no trimPath', t => {
+  t.plan(5);
+
+  const options = {
+    Path: '/test-ssm-params/nestObject',
+    Recursive: true,
+    nestObject: true,
+    trimPath: false,
+  };
+
+  ssmToObjByPath(options, (err, obj) => {
+    t.error(err);
+
+    t.equal(typeof(obj), 'object');
+    t.equal(typeof(obj['test-ssm-params']), 'object');
+    t.equal(typeof(obj['test-ssm-params']['nestObject']), 'object');
+    t.equal(obj['test-ssm-params']['nestObject'].foo.value, 'test');
   });
 });
