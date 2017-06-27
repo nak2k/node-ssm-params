@@ -8,9 +8,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "aws-sdk": "^2.76.0",
-    "eslint": "^4.0.0",
-    "tape": "^4.6.3"
+    "aws-sdk": "^2.77.0",
+    "eslint": "^4.1.1",
+    "tape": "^4.7.0"
   },
   "homepage": "https://github.com/nak2k/node-ssm-params",
   "keywords": [
