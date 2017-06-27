@@ -44,6 +44,15 @@ test('test ssmToEnv', t => {
   });
 });
 
+test('test ssmToEnv with hierarchy', t => {
+  t.plan(2);
+
+  ssmToEnv('/test-ssm-params/nestObject/foo', err => {
+    t.error(err);
+    t.equal(process.env['value'], 'test');
+  });
+});
+
 test('test ssmToObjByPath', t => {
   t.plan(3);
 
@@ -51,7 +60,7 @@ test('test ssmToObjByPath', t => {
     t.error(err);
 
     t.equal(typeof(obj), 'object');
-    t.equal(obj['/value'], 'test');
+    t.equal(obj['value'], 'test');
   });
 });
 
