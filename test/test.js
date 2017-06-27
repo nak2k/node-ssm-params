@@ -60,7 +60,6 @@ test('test ssmToObjByPath with nestObject', t => {
 
   const options = {
     Path: '/test-ssm-params/nestObject',
-    Recursive: true,
     nestObject: true,
   };
 
@@ -78,7 +77,6 @@ test('test ssmToObjByPath with nestObject and no trimPath', t => {
 
   const options = {
     Path: '/test-ssm-params/nestObject',
-    Recursive: true,
     nestObject: true,
     trimPath: false,
   };
