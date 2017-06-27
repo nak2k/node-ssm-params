@@ -25,6 +25,7 @@
   },
   "scripts": {
     "lint": "eslint lib",
+    "repl": "node --inspect repl.js",
     "test": "tape test/*.js"
   },
   "files": [
