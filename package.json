@@ -1,6 +1,6 @@
 {
   "name": "ssm-params",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Obtain from AWS SSM Parameter Store",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
@@ -8,9 +8,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "aws-sdk": "^2.76.0",
-    "eslint": "^4.0.0",
-    "tape": "^4.6.3"
+    "aws-sdk": "^2.77.0",
+    "eslint": "^4.1.1",
+    "tape": "^4.7.0"
   },
   "homepage": "https://github.com/nak2k/node-ssm-params",
   "keywords": [
@@ -25,6 +25,7 @@
   },
   "scripts": {
     "lint": "eslint lib",
+    "repl": "node --inspect repl.js",
     "test": "tape test/*.js"
   },
   "files": [
