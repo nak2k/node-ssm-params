@@ -1,6 +1,6 @@
 {
   "name": "ssm-params",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Obtain from AWS SSM Parameter Store",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
