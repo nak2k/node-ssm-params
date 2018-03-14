@@ -53,13 +53,15 @@ npm i ssm-params aws-sdk -S
     - A callback which is called, when obtaining parameters have finished or an error occurs.
     - If no error occurs, `options.target` passes into `target`.
 
-### ssmToEnv(prefix, callback)
+### ssmToEnv(prefix, [recursive,] callback)
 
 This is equivalent to call `ssmToObj` or `ssmToObjByPath` with specifying `process.env` to a target.
 
 - `prefix`
     - This is equivalent to `options.prefix` of `ssmToObj`.
-    - If this argument starts with '/', this function calls `ssmToObjEnvByPath` instead of `ssmToObj`.
+    - If this argument starts with '/', this function calls `ssmToObjByPath` instead of `ssmToObj`.
+- `recursive`
+    - This is equivalent to `options.Recursive` of `ssmToObjByPath`.
 - `callback(err, target)`
     - This is equivalent to `callback` of `ssmToObj`.
 

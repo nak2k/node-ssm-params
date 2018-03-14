@@ -53,6 +53,15 @@ test('test ssmToEnv with hierarchy', t => {
   });
 });
 
+test('test ssmToEnv with recursive', t => {
+  t.plan(2);
+
+  ssmToEnv('/test-ssm-params/nestObject', true, err => {
+    t.error(err);
+    t.equal(process.env['foo/value'], 'test');
+  });
+});
+
 test('test ssmToObjByPath', t => {
   t.plan(3);
 
