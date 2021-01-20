@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in $(seq 1 20); do aws ssm delete-parameter --name "test-ssm-params.many-params.$i"; done
+
+aws ssm delete-parameter --name "test-ssm-params.env.TEST"
+aws ssm delete-parameter --name "/test-ssm-params/nestObject/foo/value"

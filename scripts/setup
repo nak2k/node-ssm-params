@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in $(seq 1 20); do aws ssm put-parameter --name "test-ssm-params.many-params.$i" --type String --value "$i"; done
+
+aws ssm put-parameter --name "test-ssm-params.env.TEST" --type String --value "test"
+aws ssm put-parameter --name "/test-ssm-params/nestObject/foo/value" --type String --value "test"

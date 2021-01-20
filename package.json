@@ -6,11 +6,14 @@
   "bugs": {
     "url": "https://github.com/nak2k/node-ssm-params/issues"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@types/node": "^14.14.22",
+    "@types/tape": "^4.13.0",
     "aws-sdk": "^2.209.0",
-    "eslint": "^4.18.2",
-    "tape": "^4.9.0"
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "tape": "^4.9.0",
+    "typescript": "^4.1.3"
   },
   "homepage": "https://github.com/nak2k/node-ssm-params",
   "keywords": [
@@ -24,9 +27,13 @@
     "url": "git+https://github.com/nak2k/node-ssm-params.git"
   },
   "scripts": {
-    "lint": "eslint lib",
+    "build": "tsc",
+    "clean": "rimraf lib",
+    "prepublishOnly": "npm test",
+    "postpublish": "npm-sns",
     "repl": "node --inspect repl.js",
-    "test": "tape test/*.js"
+    "pretest": "run-s clean build",
+    "test": "ts-node node_modules/tape/bin/tape test/**/*.ts"
   },
   "files": [
     "README.md",

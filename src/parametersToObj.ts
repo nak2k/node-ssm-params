@@ -1,6 +1,13 @@
-exports.parametersToObj = parametersToObj;
+import { SSM } from 'aws-sdk';
 
-function parametersToObj(options, data, callback) {
+export interface ParametersToObjOptions {
+  Path: string;
+  target?: any;
+  trimPath?: boolean;
+  nestObject?: boolean;
+}
+
+export function parametersToObj(options: ParametersToObjOptions, data: { Parameters: SSM.ParameterList }) {
   const {
     Path,
     target = {},
@@ -11,23 +18,23 @@ function parametersToObj(options, data, callback) {
   const { Parameters } = data;
 
   if (Parameters.length === 0) {
-    return callback(null, target);
+    return target;
   }
 
   if (nestObject) {
     Parameters.forEach(({ Name, Value }) => {
-      let key = trimPath ? Name.substr(Path.length) : Name;
+      let key = trimPath ? Name!.substr(Path.length) : Name!;
 
       if (key[0] === '/') {
         key = key.substr(1);
       }
 
-      setProperty(target, key.split('/'), Value);
+      setProperty(target, key.split('/'), Value!);
     });
   } else {
     if (trimPath) {
       Parameters.forEach(({ Name, Value }) => {
-        let key = Name.substr(Path.length);
+        let key = Name!.substr(Path.length);
 
         if (key[0] === '/') {
           key = key.substr(1);
@@ -37,15 +44,15 @@ function parametersToObj(options, data, callback) {
       });
     } else {
       Parameters.forEach(({ Name, Value }) => {
-        target[Name] = Value;
+        target[Name!] = Value;
       });
     }
   }
 
-  callback(null, target);
+  return target;
 }
 
-function setProperty(obj, propList, value) {
+function setProperty(obj: any, propList: string[], value: string) {
   const lastIndex = propList.length - 1;
 
   if (lastIndex < 0) {
